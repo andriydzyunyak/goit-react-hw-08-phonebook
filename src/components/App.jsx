@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { useEffect, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // import { ContactForm } from 'components/ContactForm/ContactForm';
 // import { ContactList } from 'components/ContactList/ContactList';
@@ -8,6 +8,9 @@ import { Layout } from 'components/Layout/Layout';
 import { HomePage } from 'pages/HomePage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { LoginPage } from 'pages/LoginPage';
+import { ContactsPage } from 'pages/ContactsPage';
+import { useDispatch } from 'react-redux';
+import * as authOperations from 'redux/Auth/authOperations';
 // import {
 //   SectionContainer,
 //   FormTitle,
@@ -15,6 +18,11 @@ import { LoginPage } from 'pages/LoginPage';
 // } from 'components/Section.styled';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <AppBar />
@@ -24,6 +32,7 @@ export const App = () => {
             <Route index element={<HomePage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/contacts" element={<ContactsPage />} />
           </Route>
         </Routes>
       </Suspense>

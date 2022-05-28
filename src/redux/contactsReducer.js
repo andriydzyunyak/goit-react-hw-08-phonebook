@@ -8,7 +8,7 @@ import {
 } from './contactsOperations';
 
 //Actions
-export const onChangeFilter = createAction('todos/onChangeFilter');
+export const onChangeFilter = createAction('contacts/onChangeFilter');
 
 //Reducers
 const items = createReducer([], {

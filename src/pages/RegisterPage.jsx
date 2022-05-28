@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import * as authOperations from '../redux/Auth/authOperations';
+import * as authOperations from 'redux/Auth/authOperations';
 //import { register } from 'redux/Auth/authOperations';
 // import { Formik } from 'formik';
 // import * as yup from 'yup';
