@@ -11,12 +11,12 @@ import {
 
 const initialState = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 const schema = yup.object().shape({
   name: yup.string().required(),
-  phone: yup.string().required(),
+  number: yup.string().required(),
 });
 
 export const ContactForm = () => {
@@ -43,15 +43,15 @@ export const ContactForm = () => {
           required
         />
         <ErrorText name="name" component="div" />
-        <LabelName htmlFor="phone">Number</LabelName>
+        <LabelName htmlFor="number">Number</LabelName>
         <InputForm
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-        <ErrorText name="phone" component="div" />
+        <ErrorText name="number" component="div" />
         <SubmitButton type="submit">Add contact</SubmitButton>
       </PhonebookForm>
     </Formik>

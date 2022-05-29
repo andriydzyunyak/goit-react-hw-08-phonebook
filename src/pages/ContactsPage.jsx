@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-
 import { useEffect } from 'react';
 import * as contactsOperations from 'redux/contactsOperations';
 import { ContactList } from 'components/ContactList/ContactList';

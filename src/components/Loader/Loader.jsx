@@ -5,6 +5,7 @@ import { Spinner } from 'components/Loader/Loader.styled';
 
 export const Loader = () => {
   const isLoading = useSelector(isLoadingContact);
+
   return (
     <Spinner>
       <HashLoader color="#ff0000" loading={isLoading} size={60} />

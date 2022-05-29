@@ -36,11 +36,11 @@ export const ContactList = () => {
         <>
           <Filter />
           <ContactBook>
-            {contactsList.map(({ id, name, phone }) => (
+            {contactsList.map(({ id, name, number }) => (
               <ContactItem
                 key={id}
                 name={name}
-                phone={phone}
+                number={number}
                 onDelete={() => deleteItem(id)}
               />
             ))}
