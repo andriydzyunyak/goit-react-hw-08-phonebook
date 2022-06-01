@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as contactsOperations from 'redux/contactsOperations';
 import {
   fetchContacts,
-  addUniqeContact,
+  addUniqueContact,
   deleteContact,
 } from './contactsOperations';
 
@@ -13,7 +13,7 @@ export const onChangeFilter = createAction('contacts/onChangeFilter');
 //Reducers
 const items = createReducer([], {
   [fetchContacts.fulfilled]: (_, action) => action.payload,
-  [addUniqeContact.fulfilled]: (state, action) => {
+  [addUniqueContact.fulfilled]: (state, action) => {
     return [...state, action.payload];
   },
   [deleteContact.fulfilled]: (state, action) => {
@@ -27,13 +27,13 @@ const filter = createReducer('', {
 
 const isLoading = createReducer(false, {
   [fetchContacts.pending]: () => true,
-  [addUniqeContact.pending]: () => true,
+  [addUniqueContact.pending]: () => true,
   [deleteContact.pending]: () => true,
   [fetchContacts.fulfilled]: () => false,
-  [addUniqeContact.fulfilled]: () => false,
+  [addUniqueContact.fulfilled]: () => false,
   [deleteContact.fulfilled]: () => false,
   [fetchContacts.rejected]: () => false,
-  [addUniqeContact.rejected]: () => false,
+  [addUniqueContact.rejected]: () => false,
   [deleteContact.rejected]: () => false,
 });
 
@@ -62,7 +62,7 @@ export const useAddContacts = () => {
     if (uniqueName) {
       alert(`${values.name} is already in contacts`);
     } else {
-      dispatch(contactsOperations.addUniqeContact(values));
+      dispatch(contactsOperations.addUniqueContact(values));
     }
   };
   return { contact: addContact };

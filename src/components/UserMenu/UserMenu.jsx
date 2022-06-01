@@ -1,4 +1,8 @@
-import { UserMenuContainer } from 'components/UserMenu/UserMenu.styled';
+import {
+  UserMenuContainer,
+  UserName,
+  Button,
+} from 'components/UserMenu/UserMenu.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserName } from 'redux/Auth/authSelectors';
 import * as authOperations from 'redux/Auth/authOperations';
@@ -9,10 +13,10 @@ export const UserMenu = () => {
 
   return (
     <UserMenuContainer>
-      <span>Добро пожаловать, {name}</span>
-      <button type="button" onClick={() => dispatch(authOperations.logout())}>
-        Выйти
-      </button>
+      <UserName>Welcome, {name}!</UserName>
+      <Button type="button" onClick={() => dispatch(authOperations.logout())}>
+        Logout
+      </Button>
     </UserMenuContainer>
   );
 };

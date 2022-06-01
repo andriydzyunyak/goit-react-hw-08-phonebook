@@ -6,8 +6,8 @@ export const Navigation = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <nav>
-      <Link to="/">Главная</Link>
-      {isLoggedIn && <Link to="/contacts">Контакты</Link>}
+      <Link to="/">Homepage</Link>
+      {isLoggedIn && <Link to="/contacts">Contacts</Link>}
     </nav>
   );
 };

@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import * as authOperations from 'redux/Auth/authOperations';
-//import { register } from 'redux/Auth/authOperations';
 // import { Formik } from 'formik';
 // import * as yup from 'yup';
 import { useState } from 'react';
@@ -24,7 +23,7 @@ import { useState } from 'react';
 //   password: yup.string().required(),
 // });
 
-export const RegisterPage = () => {
+export default function RegisterPage() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -102,4 +101,4 @@ export const RegisterPage = () => {
       </Formik> */}
     </div>
   );
-};
+}

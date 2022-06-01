@@ -1,20 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts, getFilter } from 'redux/contactsReducer';
-import { useEffect } from 'react';
 import * as contactsOperations from 'redux/contactsOperations';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import { ContactBook } from 'components/ContactList/ContactList.styled';
+import {
+  ContactBook,
+  NoContactMsg,
+} from 'components/ContactList/ContactList.styled';
 import { Filter } from 'components/Filter/Filter';
-import { Loader } from 'components/Loader/Loader';
+import { LoaderContact } from 'components/Loader/Loader';
 
 export const ContactList = () => {
   const filter = useSelector(getFilter);
   const items = useSelector(getContacts);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(contactsOperations.fetchContacts());
-  }, [dispatch]);
 
   const filteredContacts = () => {
     const filterNormalized = filter.toLowerCase();
@@ -45,10 +43,10 @@ export const ContactList = () => {
               />
             ))}
           </ContactBook>
-          <Loader />
+          <LoaderContact />
         </>
       ) : (
-        <div>There is no contact.</div>
+        <NoContactMsg>There is no contact!</NoContactMsg>
       )}
     </>
   );

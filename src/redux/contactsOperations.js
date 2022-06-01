@@ -13,7 +13,7 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
-export const addUniqeContact = createAsyncThunk(
+export const addUniqueContact = createAsyncThunk(
   'contacts/addContact',
   async (values, { rejectWithValue }) => {
     try {

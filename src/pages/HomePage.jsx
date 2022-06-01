@@ -1,7 +1,5 @@
-export const HomePage = () => {
-  return (
-    <div>
-      <h1>Приветствуем на странице нашего сервиса</h1>
-    </div>
-  );
-};
+import { WelcomeComponent } from 'components/WelcomeComponent/WelcomeComponent';
+
+export default function HomePage() {
+  return <WelcomeComponent />;
+}
