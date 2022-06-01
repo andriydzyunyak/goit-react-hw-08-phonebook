@@ -1,9 +1,8 @@
 import { useDispatch } from 'react-redux';
 import * as authOperations from 'redux/Auth/authOperations';
-//import { register } from 'redux/Auth/authOperations';
-// import { Formik } from 'formik';
-// import * as yup from 'yup';
-import { useState } from 'react';
+import { Formik, Form, Field } from 'formik';
+import * as yup from 'yup';
+// import { useState } from 'react';
 // import {
 //   InputForm,
 //   LabelName,
@@ -12,54 +11,40 @@ import { useState } from 'react';
 //   ErrorText,
 // } from 'components/ContactForm/ContactForm.styled';
 
+const initialState = {
+  email: '',
+  password: '',
+};
+
+const schema = yup.object().shape({
+  email: yup.string().required(),
+  password: yup.string().required(),
+});
+
 export default function LoginPage() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
-    }
-  };
-
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    dispatch(authOperations.login({ email, password }));
-    setEmail('');
-    setPassword('');
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(authOperations.login(values));
+    resetForm();
   };
 
   return (
     <div>
       <h1>Страница входа</h1>
-
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Login</button>
-      </form>
+      <Formik
+        initialValues={initialState}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        <Form autoComplete="off">
+          <label htmlFor="email">Email</label>
+          <Field type="email" name="email" required />
+          <label htmlFor="password">Password</label>
+          <Field type="password" name="password" required />
+          <button type="submit">Login</button>
+        </Form>
+      </Formik>
     </div>
   );
 }

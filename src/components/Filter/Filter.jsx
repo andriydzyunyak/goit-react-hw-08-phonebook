@@ -1,11 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from 'redux/contactsReducer';
 import * as contactsReducer from 'redux/contactsReducer';
-import {
-  FilterContainer,
-  FilterLabel,
-  FilterInput,
-} from 'components/Filter/Filter.styled';
+import { FilterLabel, FilterInput } from 'components/Filter/Filter.styled';
 
 export const Filter = () => {
   const filter = useSelector(getFilter);
@@ -16,7 +12,7 @@ export const Filter = () => {
   };
 
   return (
-    <FilterContainer>
+    <>
       <FilterLabel>
         Find contacts by name
         <FilterInput
@@ -26,6 +22,6 @@ export const Filter = () => {
           placeholder="Enter search name"
         ></FilterInput>
       </FilterLabel>
-    </FilterContainer>
+    </>
   );
 };

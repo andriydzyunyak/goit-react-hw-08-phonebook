@@ -2,12 +2,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getContacts, getFilter } from 'redux/contactsReducer';
 import * as contactsOperations from 'redux/contactsOperations';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import {
-  ContactBook,
-  NoContactMsg,
-} from 'components/ContactList/ContactList.styled';
 import { Filter } from 'components/Filter/Filter';
 import { LoaderContact } from 'components/Loader/Loader';
+import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
 
 export const ContactList = () => {
   const filter = useSelector(getFilter);
@@ -29,11 +27,17 @@ export const ContactList = () => {
   const contactsList = filteredContacts();
 
   return (
-    <>
+    <Box
+      sx={{
+        width: 360,
+        display: 'block',
+        margin: '0 auto',
+      }}
+    >
       {items.length !== 0 ? (
         <>
           <Filter />
-          <ContactBook>
+          <ul>
             {contactsList.map(({ id, name, number }) => (
               <ContactItem
                 key={id}
@@ -42,12 +46,12 @@ export const ContactList = () => {
                 onDelete={() => deleteItem(id)}
               />
             ))}
-          </ContactBook>
+          </ul>
           <LoaderContact />
         </>
       ) : (
-        <NoContactMsg>There is no contact!</NoContactMsg>
+        <Alert severity="info">There is no contact!</Alert>
       )}
-    </>
+    </Box>
   );
 };

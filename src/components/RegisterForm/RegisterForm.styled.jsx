@@ -1,10 +1,28 @@
 import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
 
-export const PhonebookForm = styled(Form)`
+export const FormContainer = styled.div`
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: #f4ff77;
+`;
+
+export const PageTitle = styled.h1`
+  display: block;
+  text-align: center;
+  margin-bottom: 30px;
+`;
+
+export const RegistrationForm = styled(Form)`
+  display: block;
+  margin: 0 auto;
   border: 1px solid #2a2a2a;
   width: 340px;
   padding: 10px;
+  background-color: #a9e8f5;
 `;
 
 export const LabelName = styled.label`
@@ -24,7 +42,7 @@ export const InputForm = styled(Field)`
   font-size: 14px;
   line-height: 1.18;
   &:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 `;
 
@@ -35,6 +53,5 @@ export const ErrorText = styled(ErrorMessage)`
   line-height: 1.18;
   letter-spacing: 0.03em;
   color: #ff0000;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 `;

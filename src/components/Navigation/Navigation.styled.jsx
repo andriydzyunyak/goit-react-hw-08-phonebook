@@ -6,15 +6,15 @@ export const Link = styled(NavLink)`
   text-decoration: none;
   font-weight: 500;
   font-size: 20px;
-  color: #000000;
+  color: #ffffff;
   &:not(:last-child) {
     margin-right: 20px;
   }
   &:hover,
   :focus {
-    color: #2196f3;
+    color: #ffdd00;
   }
   &.active {
-    color: #2196f3;
+    color: #ffdd00;
   }
 `;

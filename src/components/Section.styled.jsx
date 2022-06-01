@@ -12,4 +12,5 @@ export const ContactTitle = styled.h2`
   line-height: 1.4;
   margin-top: 25px;
   margin-bottom: 20px;
+  text-align: center;
 `;

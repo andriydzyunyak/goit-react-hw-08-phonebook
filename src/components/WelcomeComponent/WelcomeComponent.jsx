@@ -11,8 +11,8 @@ export const WelcomeComponent = () => {
     <Container>
       <PageTitle>Welcome to our Phonebook service</PageTitle>
       <picture>
-        <source srcset={phonebookimage} media="(min-width:768px)" />
-        <source srcset={mobileimage} media="(min-width:320px)" />
+        <source srcSet={phonebookimage} media="(min-width:768px)" />
+        <source srcSet={mobileimage} media="(min-width:320px)" />
         <HomePageImage alt="phonebookimage" src={mobileimage} />
       </picture>
     </Container>

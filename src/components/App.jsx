@@ -1,6 +1,6 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { AppBar } from 'components/AppBar/AppBar';
+import ButtonAppBar from 'components/AppBar/AppBar';
 import { LoaderPage } from 'components/Loader/Loader';
 import { Layout } from 'components/Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,7 +28,7 @@ export const App = () => {
         <LoaderPage />
       ) : (
         <>
-          <AppBar />
+          <ButtonAppBar />
           <Suspense fallback={<LoaderPage />}>
             <Routes>
               <Route path="/" element={<Layout />}>

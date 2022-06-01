@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: block;
   padding: 15px;
   margin: 0 auto;
-  margin-top: 60px;
+  padding-top: 60px;
+  background-color: #f4ff77;
 `;
 
 export const PageTitle = styled.h1`

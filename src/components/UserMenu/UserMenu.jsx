@@ -1,11 +1,14 @@
 import {
   UserMenuContainer,
   UserName,
-  Button,
 } from 'components/UserMenu/UserMenu.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserName } from 'redux/Auth/authSelectors';
 import * as authOperations from 'redux/Auth/authOperations';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import userAvatar from 'image/avatar.png';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -13,8 +16,17 @@ export const UserMenu = () => {
 
   return (
     <UserMenuContainer>
+      <Avatar alt="current user" src={userAvatar} />
+
       <UserName>Welcome, {name}!</UserName>
-      <Button type="button" onClick={() => dispatch(authOperations.logout())}>
+      <Button
+        color="info"
+        variant="contained"
+        size="small"
+        type="button"
+        endIcon={<LogoutIcon />}
+        onClick={() => dispatch(authOperations.logout())}
+      >
         Logout
       </Button>
     </UserMenuContainer>
