@@ -1,16 +1,32 @@
-import HashLoader from 'react-spinners/HashLoader';
 import { useSelector } from 'react-redux';
 import { isLoadingContact } from 'redux/contactsReducer';
 import { getFetchingCurrentUser } from 'redux/Auth/authSelectors';
-import { Spinner } from 'components/Loader/Loader.styled';
+import Box from '@mui/material/Box';
+import Fade from '@mui/material/Fade';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const LoaderPage = () => {
   const isFetchingCurrentUser = useSelector(getFetchingCurrentUser);
 
   return (
-    <Spinner>
-      <HashLoader color="#0000ff" loading={!isFetchingCurrentUser} size={60} />
-    </Spinner>
+    <Box
+      sx={{
+        width: '100vw',
+        height: '100vh',
+        position: 'relative',
+      }}
+    >
+      <Fade in={isFetchingCurrentUser} unmountOnExit>
+        <CircularProgress
+          size={60}
+          sx={{
+            position: 'absolute',
+            top: '40%',
+            left: '50%',
+          }}
+        />
+      </Fade>
+    </Box>
   );
 };
 
@@ -18,8 +34,10 @@ export const LoaderContact = () => {
   const isLoading = useSelector(isLoadingContact);
 
   return (
-    <Spinner>
-      <HashLoader color="#0000ff" loading={isLoading} size={60} />
-    </Spinner>
+    <Box sx={{ height: 40, display: 'flex', justifyContent: 'center' }}>
+      <Fade in={isLoading} unmountOnExit>
+        <CircularProgress size={60} />
+      </Fade>
+    </Box>
   );
 };

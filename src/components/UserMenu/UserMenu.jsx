@@ -1,10 +1,7 @@
-import {
-  UserMenuContainer,
-  UserName,
-} from 'components/UserMenu/UserMenu.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserName } from 'redux/Auth/authSelectors';
 import * as authOperations from 'redux/Auth/authOperations';
+import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import userAvatar from 'image/avatar.png';
@@ -15,10 +12,27 @@ export const UserMenu = () => {
   const name = useSelector(getUserName);
 
   return (
-    <UserMenuContainer>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
       <Avatar alt="current user" src={userAvatar} />
+      <Box
+        component="span"
+        sx={{
+          fontWeight: 400,
+          fontSize: '18px',
+          lineHeight: 1.18,
+          color: '#ffffff',
+          ml: '10px',
+          mr: '10px',
+        }}
+      >
+        Welcome, {name}!
+      </Box>
 
-      <UserName>Welcome, {name}!</UserName>
       <Button
         color="info"
         variant="contained"
@@ -29,6 +43,6 @@ export const UserMenu = () => {
       >
         Logout
       </Button>
-    </UserMenuContainer>
+    </Box>
   );
 };

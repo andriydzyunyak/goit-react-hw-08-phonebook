@@ -29,7 +29,7 @@ export const ContactList = () => {
   return (
     <Box
       sx={{
-        width: 360,
+        width: 340,
         display: 'block',
         margin: '0 auto',
       }}

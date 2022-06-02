@@ -15,10 +15,10 @@ export default function ContactsPage() {
   return (
     <Box
       sx={{
-        width: '100%',
-        display: 'block',
+        minWidth: '100%',
+        height: '100vh',
         margin: '0 auto',
-        padding: 2,
+        paddingTop: 2,
         backgroundColor: '#f4ff77',
       }}
     >
