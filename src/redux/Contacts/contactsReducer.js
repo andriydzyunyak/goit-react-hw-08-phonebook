@@ -1,11 +1,12 @@
 import { combineReducers, createReducer, createAction } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
-import * as contactsOperations from 'redux/contactsOperations';
+import * as contactsOperations from 'redux/Contacts/contactsOperations';
 import {
   fetchContacts,
   addUniqueContact,
   deleteContact,
 } from './contactsOperations';
+import { getContacts } from 'redux/Contacts/contactsSelectors';
 
 //Actions
 export const onChangeFilter = createAction('contacts/onChangeFilter');
@@ -36,11 +37,6 @@ const isLoading = createReducer(false, {
   [addUniqueContact.rejected]: () => false,
   [deleteContact.rejected]: () => false,
 });
-
-//Selectors
-export const getContacts = state => state.contacts.items;
-export const getFilter = state => state.contacts.filter;
-export const isLoadingContact = state => state.contacts.isLoading;
 
 export default combineReducers({
   items,

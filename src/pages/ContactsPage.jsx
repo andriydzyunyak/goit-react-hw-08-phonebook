@@ -1,9 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import * as contactsOperations from 'redux/contactsOperations';
+import * as contactsOperations from 'redux/Contacts/contactsOperations';
 import { ContactList } from 'components/ContactList/ContactList';
 import { ContactForm } from 'components/ContactForm/ContactForm';
-import { ContactTitle } from 'components/Section.styled';
 import Box from '@mui/material/Box';
 
 export default function ContactsPage() {
@@ -23,7 +22,19 @@ export default function ContactsPage() {
       }}
     >
       <ContactForm />
-      <ContactTitle>Contacts</ContactTitle>
+      <Box
+        component="h2"
+        sx={{
+          fontSize: '24px',
+          fontWeight: 700,
+          lineHeight: 1.4,
+          mt: '25px',
+          mb: '20px',
+          textAlign: 'center',
+        }}
+      >
+        Contacts
+      </Box>
       <ContactList />
     </Box>
   );

@@ -31,6 +31,7 @@ export const GlobalStyle = css`
   }
   img {
     display: block;
+    margin: 0 auto;
   }
   input,
   textarea {

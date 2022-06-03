@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts, getFilter } from 'redux/contactsReducer';
-import * as contactsOperations from 'redux/contactsOperations';
+import { getContacts, getFilter } from 'redux/Contacts/contactsSelectors';
+import * as contactsOperations from 'redux/Contacts/contactsOperations';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { Filter } from 'components/Filter/Filter';
 import { LoaderContact } from 'components/Loader/Loader';

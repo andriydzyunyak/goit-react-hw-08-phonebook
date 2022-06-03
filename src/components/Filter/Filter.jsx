@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilter } from 'redux/contactsReducer';
-import * as contactsReducer from 'redux/contactsReducer';
+import { getFilter } from 'redux/Contacts/contactsSelectors';
+import * as contactsReducer from 'redux/Contacts/contactsReducer';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 

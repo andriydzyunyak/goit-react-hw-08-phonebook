@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useAddContacts } from 'redux/contactsReducer';
+import { useAddContacts } from 'redux/Contacts/contactsReducer';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -32,11 +32,14 @@ export const ContactForm = () => {
       sx={{
         width: 340,
         margin: '0 auto',
-        backgroundColor: '#c7f0f8',
       }}
     >
       <form onSubmit={formik.handleSubmit}>
         <TextField
+          sx={{
+            mb: '10px',
+            backgroundColor: '#c7f0f8',
+          }}
           fullWidth
           id="name"
           name="name"
@@ -48,6 +51,10 @@ export const ContactForm = () => {
         />
 
         <TextField
+          sx={{
+            mb: '10px',
+            backgroundColor: '#c7f0f8',
+          }}
           fullWidth
           id="number"
           name="number"
@@ -64,45 +71,5 @@ export const ContactForm = () => {
         </Button>
       </form>
     </Box>
-
-    // <Box
-    //   sx={{
-    //     width: 340,
-    //     margin: '0 auto',
-    //     backgroundColor: '#a9e8f5',
-    //   }}
-    // >
-    //   <Formik
-    //     initialValues={initialState}
-    //     validationSchema={schema}
-    //     onSubmit={handleSubmit}
-    //   >
-    //     <PhonebookForm autoComplete="off">
-    //       <LabelName htmlFor="name">Name</LabelName>
-    //       <InputForm
-    //         type="text"
-    //         name="name"
-    //         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-    //         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-    //         placeholder="Enter your name"
-    //         required
-    //       />
-    //       <ErrorText name="name" component="div" />
-    //       <LabelName htmlFor="number">Number</LabelName>
-    //       <InputForm
-    //         type="tel"
-    //         name="number"
-    //         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-    //         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-    //         placeholder="(000)123-45-67"
-    //         required
-    //       />
-    //       <ErrorText name="number" component="div" />
-    //       <Button variant="contained" size="small" type="submit">
-    //         Add contact
-    //       </Button>
-    //     </PhonebookForm>
-    //   </Formik>
-    // </Box>
   );
 };

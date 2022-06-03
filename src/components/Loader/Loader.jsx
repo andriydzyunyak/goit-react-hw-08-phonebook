@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { isLoadingContact } from 'redux/contactsReducer';
+import { isLoadingContact } from 'redux/Contacts/contactsSelectors';
 import { getFetchingCurrentUser } from 'redux/Auth/authSelectors';
 import Box from '@mui/material/Box';
 import Fade from '@mui/material/Fade';
