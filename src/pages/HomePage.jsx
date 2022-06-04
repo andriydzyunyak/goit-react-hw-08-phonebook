@@ -7,6 +7,8 @@ export default function HomePage() {
     <Box
       component="div"
       sx={{
+        width: '100%',
+        height: '100vh',
         pt: '60px',
         backgroundColor: '#f4ff77',
       }}

@@ -1,5 +1,7 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ButtonAppBar from 'components/AppBar/AppBar';
 import { LoaderPage } from 'components/Loader/Loader';
 import { Layout } from 'components/Layout/Layout';
@@ -29,6 +31,7 @@ export const App = () => {
       ) : (
         <>
           <ButtonAppBar />
+          <ToastContainer autoClose={3000} />
           <Suspense fallback={<LoaderPage />}>
             <Routes>
               <Route path="/" element={<Layout />}>

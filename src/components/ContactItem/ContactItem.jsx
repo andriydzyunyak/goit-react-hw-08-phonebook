@@ -18,7 +18,7 @@ export const ContactItem = ({ name, number, onDelete }) => {
       <ListItemAvatar>
         <ContactPhoneIcon />
       </ListItemAvatar>
-      <ListItemText primary={name} />
+      <ListItemText primary={name} sx={{ textTransform: 'capitalize' }} />
       <ListItemText primary={number} />
     </ListItem>
   );

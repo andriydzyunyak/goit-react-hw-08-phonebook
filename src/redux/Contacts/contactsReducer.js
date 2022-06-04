@@ -1,5 +1,6 @@
 import { combineReducers, createReducer, createAction } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import * as contactsOperations from 'redux/Contacts/contactsOperations';
 import {
   fetchContacts,
@@ -56,7 +57,10 @@ export const useAddContacts = () => {
     );
 
     if (uniqueName) {
-      alert(`${values.name} is already in contacts`);
+      toast.warn(`${values.name} is already in contacts`, {
+        position: toast.POSITION.TOP_CENTER,
+        theme: 'colored',
+      });
     } else {
       dispatch(contactsOperations.addUniqueContact(values));
     }

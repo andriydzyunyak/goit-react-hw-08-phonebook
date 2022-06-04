@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as API from 'services/auth-api';
+import { toast } from 'react-toastify';
 
 const token = {
   set(token) {
@@ -19,6 +20,13 @@ export const register = createAsyncThunk(
       token.set(user.token);
       return user;
     } catch (error) {
+      toast.error(
+        `${error.response.statusText}. User with email ${values.email} already exist!`,
+        {
+          position: toast.POSITION.TOP_CENTER,
+          theme: 'colored',
+        }
+      );
       return rejectWithValue(error);
     }
   }
@@ -32,7 +40,14 @@ export const login = createAsyncThunk(
       token.set(user.token);
       return user;
     } catch (error) {
-      return rejectWithValue(error);
+      toast.error(
+        `${error.response.statusText}. Please check your email or password!`,
+        {
+          position: toast.POSITION.TOP_CENTER,
+          theme: 'colored',
+        }
+      );
+      return rejectWithValue(error.response.statusText);
     }
   }
 );
