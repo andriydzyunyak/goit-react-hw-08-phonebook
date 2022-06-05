@@ -48,6 +48,7 @@ export const ContactForm = () => {
           onChange={formik.handleChange}
           error={formik.touched.name && Boolean(formik.errors.name)}
           helperText={formik.touched.name && formik.errors.name}
+          required
         />
 
         <TextField
@@ -64,6 +65,7 @@ export const ContactForm = () => {
           error={formik.touched.number && Boolean(formik.errors.number)}
           helperText={formik.touched.number && formik.errors.number}
           type="tel"
+          required
         />
 
         <Button color="primary" variant="contained" fullWidth type="submit">

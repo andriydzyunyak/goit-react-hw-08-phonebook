@@ -30,7 +30,7 @@ export default function RegisterPage() {
     validationSchema: schema,
     onSubmit: (values, { resetForm }) => {
       dispatch(authOperations.register(values));
-      resetForm();
+      // resetForm();
     },
   });
 
@@ -75,6 +75,7 @@ export default function RegisterPage() {
             onChange={formik.handleChange}
             error={formik.touched.name && Boolean(formik.errors.name)}
             helperText={formik.touched.name && formik.errors.name}
+            required
           />
           <TextField
             sx={{
@@ -90,6 +91,7 @@ export default function RegisterPage() {
             error={formik.touched.email && Boolean(formik.errors.email)}
             helperText={formik.touched.email && formik.errors.email}
             type="email"
+            required
           />
           <TextField
             sx={{
@@ -105,6 +107,7 @@ export default function RegisterPage() {
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
             type="password"
+            required
           />
 
           <Button color="primary" variant="contained" fullWidth type="submit">

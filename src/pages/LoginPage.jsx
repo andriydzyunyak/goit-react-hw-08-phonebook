@@ -28,7 +28,7 @@ export default function LoginPage() {
     validationSchema: schema,
     onSubmit: (values, { resetForm }) => {
       dispatch(authOperations.login(values));
-      resetForm();
+      // resetForm();
     },
   });
 
@@ -74,6 +74,7 @@ export default function LoginPage() {
             error={formik.touched.email && Boolean(formik.errors.email)}
             helperText={formik.touched.email && formik.errors.email}
             type="email"
+            required
           />
           <TextField
             sx={{
@@ -89,6 +90,7 @@ export default function LoginPage() {
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
             type="password"
+            required
           />
 
           <Button color="primary" variant="contained" fullWidth type="submit">
