@@ -2,9 +2,14 @@ import { useDispatch } from 'react-redux';
 import * as authOperations from 'redux/Auth/authOperations';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const schema = yup.object().shape({
   name: yup.string('Enter your name').required('Name is required'),
@@ -33,6 +38,21 @@ export default function RegisterPage() {
       // resetForm();
     },
   });
+
+  const [values, setValues] = useState({
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
 
   return (
     <Box
@@ -98,6 +118,37 @@ export default function RegisterPage() {
               mb: '10px',
               backgroundColor: '#c7f0f8',
             }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            fullWidth
+            id="password"
+            name="password"
+            label="Password"
+            value={formik.values.password}
+            onChange={formik.handleChange('password')}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
+            // type="password"
+            type={values.showPassword ? 'text' : 'password'}
+            required
+          />
+          {/* <TextField
+            sx={{
+              mb: '10px',
+              backgroundColor: '#c7f0f8',
+            }}
             fullWidth
             id="password"
             name="password"
@@ -108,7 +159,7 @@ export default function RegisterPage() {
             helperText={formik.touched.password && formik.errors.password}
             type="password"
             required
-          />
+          /> */}
 
           <Button color="primary" variant="contained" fullWidth type="submit">
             Register
